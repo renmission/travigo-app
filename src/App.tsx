@@ -1,5 +1,5 @@
 import React from "react";
-import { Advertise, Explore, Footer, Hero, Memory, Navbar, Pricing } from "./components";
+import { Advertise, Banner, Explore, Footer, Hero, Memory, Navbar, Newsletter, Pricing } from "./components";
 import { hero, navlinks, memory, placesAPI, brands, pricingapi, bannerAPI, footerAPI } from './data';
 
 const App = () => {
@@ -11,7 +11,9 @@ const App = () => {
       <Explore title="Explore the beauty of the world." placesAPI={placesAPI}/>
       <Advertise title="Ads" brands={brands} />
       <Pricing {...pricingapi} />
-      <Footer />
+      <Banner {...bannerAPI} />
+      <Newsletter />
+      <Footer {...footerAPI}/>
     </>
   );
 };

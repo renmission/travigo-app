@@ -23,7 +23,7 @@ export interface Plancontent {
   text: string;
 }
 
-export interface Plans {
+export interface Plan {
   planicon: string;
   title: string;
   text: string;

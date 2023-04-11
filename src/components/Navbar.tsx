@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../images/logo.png";
 import menu from "../images/menu.svg";
@@ -11,12 +11,27 @@ interface INavBar {
 
 const Navbar = ({ navlinks }: INavBar) => {
   const [popup, setPopup] = useState<boolean>(false);
-
+  const [navState, setNavState] = useState(false);
   const handlePopup = () => setPopup(!popup);
-  
+  const onNavScroll = () => {
+    if (window.screenY > 180) {
+      setNavState(true);
+    } else {
+      setNavState(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", onNavScroll);
+
+    return () => {
+      window.removeEventListener("scroll", onNavScroll);
+    };
+  }, []);
+
   return (
     <>
-      <header className="flex items-center justify-center w-auto h-auto absolute top-8 left-0 right-0">
+      <header className={`${navState ? "nav-sticky" : "nav-default"}`}>
         <nav className="flex items-center justify-between travigo-container">
           <NavLink to={`/`} className="flex items-center">
             <img src={logo} alt="logo/img" className="w-22 h-9 object-fill" />
