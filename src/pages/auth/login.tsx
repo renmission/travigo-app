@@ -22,7 +22,7 @@ const Login = ({ title, text, btnText }: ILoginProps) => {
             <p className="travigo-text">{text}</p>
           </NavLink>
         </div>
-        <form className="flex flex-col items-center justify-center space-y-2">
+        <form className="flex flex-col items-center justify-center space-y-2 pb-6">
           <Input name="email" type="email" placeholder="Email address" />
           <Input name="password" type="password" placeholder="Password" />
           <Button text={btnText} />
