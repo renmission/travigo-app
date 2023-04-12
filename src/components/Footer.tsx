@@ -12,7 +12,7 @@ const Footer = ({ titles, links, sociallinks }: IFooterProps) => {
   return (
     <>
       <footer className="bg-gradient-to-b from-emerald-400 to-green-300 pt-24 pb-7">
-        <div className="grid items-center grid-cols-3 justify-items-center">
+        <div className="w-9/12 lg:w-[95vw] m-auto mt-9 grid items-center grid-cols-3 justify-items-center">
           {titles?.map((t, i) => (
             <div key={i} className="grid items-center justify-items-center">
               <h1 className="text-xl lg:text-base uppercase font-semibold">
@@ -26,7 +26,7 @@ const Footer = ({ titles, links, sociallinks }: IFooterProps) => {
               className="grid items-center justify-items-center gap-1"
             >
               {list?.map((l, i) => (
-                <li key={i} className="font-medium text-sm sm:text-xs">
+                <li key={i} className="font-medium text-sm sm:text-xs cursor-pointer">
                   {l.link}
                 </li>
               ))}
@@ -36,10 +36,10 @@ const Footer = ({ titles, links, sociallinks }: IFooterProps) => {
         <div className="w-7/12 lg:w-[95vw] m-auto mt-9">
           <div className="h-[0.1vh] bg-black/30 my-7 md:my-5"></div>
           <div className="flex items-center justify-between px-7 md:px-0 md:gap-5 md:flex-col-reverse">
-            <p className="text-sm md:text-center">Copyright &copy; All Reserved Rights {year} <span className="font-semibold">Renato Mission</span></p>
+            <p className="text-sm md:text-center">Copyright &copy; All Reserved Rights {year} — <span className="font-semibold">Renato Mission</span></p>
             <div className="flex items-center gap-3">
               {sociallinks?.map((link, i) => (
-                <img key={i} src={link.icon} alt="social/icons"  className="w-5 h-5"/>
+                <img key={i} src={link.icon} alt="social/icons"  className="w-5 h-5 cursor-pointer"/>
               ))}
             </div>
           </div>

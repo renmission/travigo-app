@@ -14,7 +14,7 @@ const Navbar = ({ navlinks }: INavBar) => {
   const [navState, setNavState] = useState(false);
   const handlePopup = () => setPopup(!popup);
   const onNavScroll = () => {
-    if (window.screenY > 180) {
+    if (window.scrollY > 100) {
       setNavState(true);
     } else {
       setNavState(false);
