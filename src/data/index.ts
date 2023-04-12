@@ -40,11 +40,11 @@ export const brands = [
 ];
 
 export const navlinks: INavLink[] = [
-  { link: "Home", id: "home" },
-  { link: "About", id: "about" },
-  { link: "Explore", id: "explore" },
-  { link: "Pricing", id: "pricing" },
-  { link: "Contact", id: "contact" },
+  { link: "Home", id: "home", href:"#home" },
+  { link: "About", id: "about", href:"#about" },
+  { link: "Explore", id: "explore", href:"#explore" },
+  { link: "Pricing", id: "pricing", href:"#pricing" },
+  { link: "Contact", id: "contact", href:"#contact" },
 ];
 
 export const hero = {
@@ -158,4 +158,17 @@ export const footerAPI = {
     { icon: twitter },
     { icon: youtube },
   ],
+};
+
+
+export const loginAPI = {
+  title: "Sign your account!",
+  text: "or create your account now. click here!",
+  btnText: "Sign In",
+};
+
+export const registerAPI = {
+  title: "Sign Up your account!",
+  text: "Already have an account. click here!",
+  btnText: "Sign Up",
 };

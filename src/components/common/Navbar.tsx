@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-import logo from "../images/logo.png";
-import menu from "../images/menu.svg";
-import { INavLink } from "../types";
-import PopupMenu from "./PopupMenu";
+import { Link, NavLink } from "react-router-dom";
+import logo from "../../images/logo.png";
+import menu from "../../images/menu.svg";
+import { INavLink } from "../../types";
+import PopupMenu from "../PopupMenu";
 
 interface INavBar {
   navlinks: INavLink[];
@@ -40,7 +40,7 @@ const Navbar = ({ navlinks }: INavBar) => {
             {navlinks?.map((link: INavLink) => (
               <li key={link.id}>
                 <NavLink
-                  to={"#"}
+                  to={`${link.href}`}
                   className="text-lg to-slate-900 cursor-pointer"
                 >
                   {link.link}
@@ -50,9 +50,11 @@ const Navbar = ({ navlinks }: INavBar) => {
           </ul>
           <ul className="flex items-center lg:hidden">
             <li>
-              <button type="button" className="button-emrald px-7 text-base">
-                Join Now
-              </button>
+              <NavLink to={"/auth"}>
+                <button type="button" className="button-emrald px-7 text-base">
+                  Join Now
+                </button>
+              </NavLink>
             </li>
           </ul>
           <ul className="hidden lg:flex items-center">

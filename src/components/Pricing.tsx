@@ -13,7 +13,7 @@ interface IPricingProps {
 const Pricing = ({ title, text, btn1, btn2, plans }: IPricingProps) => {
   return (
     <>
-      <div className="relative my-16">
+      <div className="relative my-16" id="pricing">
         <div className="travigo-container">
           <div className="grid items-center justify-items-center mb-11 md:mb-7 text-center gap-2">
             <h1 className="travigo-h1">{title}</h1>

@@ -37,6 +37,12 @@
     @apply text-5xl lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl font-bold filter drop-shadow-lg text-slate-900;
   }
 
+  /* .travigo-h2 */
+  .travigo-h2 {
+    @apply text-4xl lg:text-3xl md:text-2xl sm:text-xl font-bold filter drop-shadow-lg text-slate-900;
+  }
+
+
   /* .travigo-subtitle */
   .travigo-subtitle {
     @apply text-5xl lg:text-4xl md:text-3xl font-bold text-slate-900 filter drop-shadow-lg;

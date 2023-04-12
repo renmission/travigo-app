@@ -1,21 +1,31 @@
 import React from "react";
-import { Advertise, Banner, Explore, Footer, Hero, Memory, Navbar, Newsletter, Pricing } from "./components";
-import { hero, navlinks, memory, placesAPI, brands, pricingapi, bannerAPI, footerAPI } from './data';
+import {
+  Advertise,
+  Banner,
+  Explore,
+  Footer,
+  Hero,
+  Memory,
+  Navbar,
+  Newsletter,
+  Pricing,
+} from "./components";
+import {
+  hero,
+  navlinks,
+  memory,
+  placesAPI,
+  brands,
+  pricingapi,
+  bannerAPI,
+  footerAPI,
+} from "./data";
+import { RouterProvider } from "react-router-dom";
+import router from "./router";
+
 
 const App = () => {
-  return (
-    <>
-      <Navbar navlinks={navlinks} />
-      <Hero {...hero} />
-      <Memory {...memory}/>
-      <Explore title="Explore the beauty of the world." placesAPI={placesAPI}/>
-      <Advertise title="Ads" brands={brands} />
-      <Pricing {...pricingapi} />
-      <Banner {...bannerAPI} />
-      <Newsletter />
-      <Footer {...footerAPI}/>
-    </>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;

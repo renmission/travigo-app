@@ -1,6 +1,7 @@
 export interface INavLink {
   link: string;
   id: string;
+  href?: string
 }
 
 export interface IMemory {
