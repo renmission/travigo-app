@@ -4,6 +4,9 @@ import logo from "../../images/logo.png";
 import menu from "../../images/menu.svg";
 import { INavLink } from "../../types";
 import PopupMenu from "../PopupMenu";
+import { useAppDispatch } from "../../app/hooks";
+import { logout } from "../../features/auth/authSlice";
+import { User, getAuth, onAuthStateChanged } from "firebase/auth";
 
 interface INavBar {
   navlinks: INavLink[];
@@ -12,6 +15,10 @@ interface INavBar {
 const Navbar = ({ navlinks }: INavBar) => {
   const [popup, setPopup] = useState<boolean>(false);
   const [navState, setNavState] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
+
+  const dispatch = useAppDispatch();
+
   const handlePopup = () => setPopup(!popup);
   const onNavScroll = () => {
     if (window.scrollY > 100) {
@@ -23,11 +30,26 @@ const Navbar = ({ navlinks }: INavBar) => {
 
   useEffect(() => {
     window.addEventListener("scroll", onNavScroll);
+    const auth = getAuth();
+    const listen = onAuthStateChanged(auth, (user: User | null) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+    });
 
     return () => {
       window.removeEventListener("scroll", onNavScroll);
+      listen();
     };
   }, []);
+
+  console.log("USER:::", user);
+
+  const handleUserLogout = () => {
+    dispatch(logout());
+  };
 
   return (
     <>
@@ -50,11 +72,20 @@ const Navbar = ({ navlinks }: INavBar) => {
           </ul>
           <ul className="flex items-center lg:hidden">
             <li>
-              <NavLink to={"/auth"}>
-                <button type="button" className="button-emrald px-7 text-base">
-                  Join Now
+              {user ? (
+                <button onClick={handleUserLogout} type="button" className="button-emrald px-7 text-base">
+                  Logout
                 </button>
-              </NavLink>
+              ) : (
+                <NavLink to={"/auth"}>
+                  <button
+                    type="button"
+                    className="button-emrald px-7 text-base"
+                  >
+                    Join Now
+                  </button>
+                </NavLink>
+              )}
             </li>
           </ul>
           <ul className="hidden lg:flex items-center">

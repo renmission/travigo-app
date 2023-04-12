@@ -3,9 +3,9 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import { Home } from "./pages/client";
+import { Home, PricingPage } from "./pages/client";
 import { AuthLayout, BaseLayout, MainLayout } from "./layouts";
-import { Login, Register } from "./pages/auth";
+import { SignIn, SignUp } from "./pages/auth";
 import { loginAPI, registerAPI } from "./data";
 
 export default createBrowserRouter(
@@ -13,10 +13,11 @@ export default createBrowserRouter(
     <Route path="/" element={<BaseLayout />}>
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Home />} />
+        <Route path="pricing" element={<PricingPage />} />
       </Route>
       <Route path="/auth" element={<AuthLayout />}>
-        <Route index element={<Login {...loginAPI} />} />
-        <Route path="register" element={<Register {...registerAPI} />} />
+        <Route index element={<SignIn {...loginAPI} />} />
+        <Route path="signup" element={<SignUp {...registerAPI} />} />
       </Route>
     </Route>
   )

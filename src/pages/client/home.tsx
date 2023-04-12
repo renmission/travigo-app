@@ -19,7 +19,7 @@ import {
 
 const Home = () => {
   return (
-    <div>
+    <>
       <Hero {...hero} />
       <Memory {...memory} />
       <Explore title="Explore the beauty of the world." placesAPI={placesAPI} />
@@ -27,7 +27,7 @@ const Home = () => {
       <Pricing {...pricingapi} />
       <Banner {...bannerAPI} />
       <Newsletter />
-    </div>
+    </>
   );
 };
 
